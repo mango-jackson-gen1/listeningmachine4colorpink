@@ -2,6 +2,8 @@
 
 A browser-based sketch that listens to your voice and changes the background color in real time. Say a color name and watch the canvas respond.
 
+![Speech-to-Color screenshot](Image.png)
+
 ## How It Works
 
 ### Voice Activity Detection & Speech Recognition
