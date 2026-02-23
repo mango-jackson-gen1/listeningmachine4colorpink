@@ -28,7 +28,15 @@ Each time the Web Speech API fires a transcript (interim or final):
 2. If multiple names match (e.g. the transcript contains both "blue" and "cloudy blue"), the **longest match wins** to avoid false partial hits.
 3. The matched color becomes the new **target color**. The canvas background doesn't snap — it **lerps** smoothly toward the target each frame, producing a gradual crossfade.
 
-The sketch also detects spoken numbers (words like "three" or digits like "5") and draws concentric circles sized by the number, but the primary interaction loop is: **speak a color word → background shifts to that color**.
+### Number-to-Circles
+
+The same transcript is also scanned for numbers. The sketch recognizes both **spoken words** ("one" through "ten") and **digit characters** ("1"–"10"). When a number is detected:
+
+1. The value sets how many **concentric circles** are drawn at the center of the canvas.
+2. Circle diameter scales with the number (`n × 40 px`), so larger numbers produce larger rings.
+3. A short **pulse animation** fires on detection — the rings briefly expand then settle, giving visual feedback that the input was received.
+
+The detected number also displays large and semi-transparent in the top-right corner of the canvas.
 
 ## Running Locally
 
